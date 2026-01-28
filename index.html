@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>human || AI drawing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HOME PAGE -->
+  <section id="home" class="page active">
+    <h1 class="title">human <span>||</span> AI drawing</h1>
+    <p class="subtitle">Can you really tell the difference?</p>
+
+    <div class="buttons">
+      <button class="btn primary" onclick="startGame()">START</button>
+      <button class="btn secondary" onclick="showArtists()">Artist List</button>
+    </div>
+  </section>
+
+  <!-- GAME PAGE -->
+  <section id="game" class="page">
+    <div class="top-bar">
+      <span id="progress">Warm-up · 1 / 5</span>
+    </div>
+
+    <div id="question">
+  <div class="image-frame">
+    <img id="game-image">
+  </div>
+</div>
+
+    <div id="reveal" class="hidden reveal-grid">
+  <div class="image-frame">
+    <img id="reveal-main">
+  </div>
+
+  <div class="image-frame">
+    <img id="ref-image">
+    <p id="ref-credit"></p>
+  </div>
+</div>
+
+
+    <div class="choices">
+      <button class="btn choice" onclick="answer('human')">HUMAN DRAWING</button>
+      <button class="btn choice" onclick="answer('ai')">AI DRAWING</button>
+    </div>
+
+    <div id="feedback" class="feedback hidden">
+      <p id="result"></p>
+      <p id="explanation"></p>
+      <button class="btn primary" onclick="nextImage()">NEXT</button>
+    </div>
+  </section>
+
+  <section id="game-over" class="hidden">
+  <h2>Game Over</h2>
+  <p id="final-score"></p>
+  <p id="game-message"></p>
+
+  <button onclick="goHome()">กลับหน้าหลัก</button>
+  <button onclick="nextStage()">ด่านถัดไป</button>
+</section>
+
+
+  <!-- ARTIST LIST (simple alert v1) -->
+  <script src="script.js"></script>
+</body>
+</html>
