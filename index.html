@@ -11,6 +11,7 @@
   <section id="home" class="page active">
     <h1 class="title">human <span>||</span> AI drawing</h1>
     <p class="subtitle">Can you really tell the difference?</p>
+    <img src="https://res.cloudinary.com/db60xmg35/image/upload/v1770283119/%E0%B8%AA%E0%B8%B5%E0%B8%A1%E0%B9%88%E0%B8%A7%E0%B8%87_%E0%B8%AA%E0%B8%B5%E0%B8%82%E0%B8%B2%E0%B8%A7_%E0%B8%99%E0%B9%88%E0%B8%B2%E0%B8%A3%E0%B8%B1%E0%B8%81_%E0%B8%AA%E0%B8%99%E0%B8%B8%E0%B8%81%E0%B8%AA%E0%B8%99%E0%B8%B2%E0%B8%99_%E0%B8%9A%E0%B8%B4%E0%B8%A7%E0%B8%95%E0%B8%B5%E0%B9%89_%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%B3%E0%B9%80%E0%B8%A5%E0%B9%87%E0%B8%9A_%E0%B9%82%E0%B8%A5%E0%B9%82%E0%B8%81%E0%B9%89-removebg-preview_xwsefk.png">  
 
     <div class="buttons">
       <button class="btn primary" onclick="startGame()">START</button>
@@ -30,19 +31,28 @@
   </div>
 </div>
 
-    <div id="reveal" class="hidden reveal-grid">
+<div id="reveal" class="hidden reveal-grid">
+
+  <!-- ภาพเฉลยหลัก -->
   <div class="image-frame">
     <img id="reveal-main">
   </div>
 
-  <div class="image-frame">
-    <img id="ref-image">
-    <p id="ref-credit"></p>
+  <!-- ภาพ reference -->
+  <div id="ref-container">
+    <div class="image-frame">
+      <img id="ref-image" class="hidden">
+      <div id="ref-placeholder" class="ref-placeholder hidden">
+        <div class="ref-icon">🖼️</div>
+        <div>No reference</div>
+      </div>
+    </div>
+    <div id="ref-credit"></div>
   </div>
+
 </div>
 
-
-    <div class="choices">
+    <div id="choices" class="choices">
       <button class="btn choice" onclick="answer('human')">HUMAN DRAWING</button>
       <button class="btn choice" onclick="answer('ai')">AI DRAWING</button>
     </div>
@@ -57,7 +67,7 @@
   <section id="game-over" class="hidden">
   <h2>Game Over</h2>
   <p id="final-score"></p>
-  <p id="game-message"></p>
+  <p id="game-message"></p> 
 
   <button onclick="goHome()">กลับหน้าหลัก</button>
   <button onclick="nextStage()">ด่านถัดไป</button>
@@ -68,3 +78,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
