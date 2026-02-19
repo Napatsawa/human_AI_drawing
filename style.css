@@ -9,7 +9,7 @@ body {
   color: #333;
    display: flex;
   justify-content: center;
-  align-items: flex-start;   /* 🔧 เปลี่ยนตรงนี้ */
+  align-items: flex-start;  
   height: 100vh;
   padding-top: 40px;
 }
@@ -102,16 +102,31 @@ body {
   object-fit: contain;
 }
 
-.reveal-grid {
+#reveal.reveal-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
-.reveal-single {
+#reveal.reveal-single {
   display: flex;
   justify-content: center;
 }
+
+.ref-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.4;
+  font-size: 14px;
+}
+
+.ref-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
 
 .choices {
   display: flex;
@@ -124,6 +139,25 @@ body {
 
 .hidden {
   display: none;
+}
+
+
+@media (max-width: 600px) {
+  body {
+    margin: 0;
+  }
+
+  #game {
+    padding: 12px;
+  }
+
+  .game-container {
+    justify-content: flex-start;
+  }
+
+  .buttons {
+    margin-top: 12px;
+  }
 }
 
 #game-over h2 {
@@ -150,3 +184,4 @@ body {
   background: #A8B5E0;
   color: white;
 }
+
