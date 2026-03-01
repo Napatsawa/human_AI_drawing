@@ -132,10 +132,24 @@ function resetStageState() {
   answered = false;
   shuffledImages = [];
 
-  // reset UI
   document.getElementById("feedback").classList.add("hidden");
   document.getElementById("question").classList.remove("hidden");
-  document.getElementById("reveal").classList.add("hidden");
+
+  const reveal = document.getElementById("reveal");
+  reveal.classList.add("hidden");
+  reveal.classList.remove("reveal-grid", "reveal-single");
+
+  document.getElementById("ref-image").classList.add("hidden");
+  document.getElementById("ref-image").src = "";
+
+  document.getElementById("ref-placeholder").classList.add("hidden");
+  document.getElementById("ref-credit").textContent = "";
+
+  document.querySelectorAll(".choice-btn").forEach(btn => {
+    btn.disabled = false;
+  });
+
+  document.getElementById("choices").classList.remove("hidden");
 }
 
 
@@ -148,9 +162,11 @@ function startGame(stage = "warmup") {
 
   updateProgress();
 
-  document.getElementById("home").classList.remove("active");
-  document.getElementById("game-over").classList.add("hidden");
-  document.getElementById("game").classList.add("active");
+ document.querySelectorAll(".page").forEach(page => {
+  page.classList.remove("active");
+ });
+
+ document.getElementById("game").classList.add("active");
 
   loadImage();
 }
@@ -210,7 +226,7 @@ document.getElementById("choices").classList.add("hidden");
 
   document.getElementById("explanation").textContent =
     item.explanation;
-
+  document.getElementById("artist").textContent = item.artist;
   document.getElementById("feedback").classList.remove("hidden");
   document.getElementById("question").classList.add("hidden");
 
@@ -222,6 +238,7 @@ document.getElementById("choices").classList.add("hidden");
   const refImg = document.getElementById("ref-image");
   const refPlaceholder = document.getElementById("ref-placeholder");
   const refCredit = document.getElementById("ref-credit");
+
 
   if (item.ref) {
     reveal.classList.add("reveal-grid");
@@ -265,7 +282,7 @@ document.getElementById("choices").classList.remove("hidden");
 
 function endGame() {
   document.getElementById("game").classList.remove("active");
-  document.getElementById("game-over").classList.remove("hidden");
+  document.getElementById("game-over").classList.add("active");
 
   document.getElementById("final-score").textContent =
     `คุณได้ ${score} / ${shuffledImages.length} คะแนน`;
@@ -303,9 +320,13 @@ else if (currentStage === "medium") {
 
 
 function goHome() {
-  document.getElementById("game-over").classList.add("hidden");
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
   document.getElementById("home").classList.add("active");
 }
+
 
 function nextStage() {
   if (currentStage === "warmup") {
@@ -317,6 +338,7 @@ function nextStage() {
     return;
   }
 }
+
 
 
 
